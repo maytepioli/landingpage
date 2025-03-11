@@ -2,18 +2,20 @@ import 'package:flutter/material.dart';
 import 'landing_page.dart';
 
 void main() {
-  runApp(MyLandingPage());
+  runApp(MyApp());
 }
 
-class MyLandingPage extends StatelessWidget {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Mi App',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home:
-          LandingPage(), // Se utiliza la pantalla principal definida en landing_page.dart
+      title: 'Hope Box',
+      theme: ThemeData(
+        primaryColor: Color(0xFF9D4EDD),
+        scaffoldBackgroundColor: Colors.white,
+      ),
+      home: LandingPage(),
     );
   }
 }
