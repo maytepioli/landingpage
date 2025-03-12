@@ -114,7 +114,7 @@ class CircleData {
   final double startX; // Posición horizontal relativa (0 a 1)
   final double startY; // Posición vertical relativa (0 a 1)
   final double radius;
-  final double amplitude; // Amplitud de oscilación vertical en píxeles
+  final double amplitude; // Amplitud de oscilación (en píxeles)
   final double phase; // Fase inicial para la oscilación
 
   CircleData({
@@ -192,14 +192,15 @@ class CirclePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()..color = Colors.deepPurple.withOpacity(0.1);
-
     for (final circle in circles) {
-      // Usamos una función seno para lograr un movimiento oscilante
-      final sinValue = sin(animationValue * 2 * pi + circle.phase);
-      final offsetY = circle.startY * size.height + sinValue * circle.amplitude;
+      // Oscilación horizontal y vertical para un efecto "flotante"
+      final horizontalOffset =
+          cos(animationValue * 2 * pi + circle.phase) * circle.amplitude;
+      final verticalOffset =
+          sin(animationValue * 2 * pi + circle.phase) * circle.amplitude;
       final offset = Offset(
-        circle.startX * size.width,
-        offsetY,
+        circle.startX * size.width + horizontalOffset,
+        circle.startY * size.height + verticalOffset,
       );
       canvas.drawCircle(offset, circle.radius, paint);
     }

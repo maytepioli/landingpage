@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -33,27 +34,20 @@ class _TeamSectionState extends State<TeamSection>
 
   @override
   Widget build(BuildContext context) {
+    // Se muestra el contenido sobre un fondo transparente (sin los círculos)
     return Container(
       padding: EdgeInsets.all(16.0),
-      // Degradado sutil de fondo
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [Colors.white, Color(0xFF9D4EDD).withOpacity(0.02)],
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-        ),
-      ),
+      color: Colors.transparent,
       child: FadeTransition(
         opacity: _fadeAnimation,
         child: LayoutBuilder(
           builder: (context, constraints) {
-            // Define un umbral para considerar el dispositivo como móvil.
             bool isMobile = constraints.maxWidth < 600;
             return Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(height: 50),
-                // Título "TEAM" centrado, más grande y con mayor grosor
+                // Título "Team"
                 Text(
                   'Team',
                   textAlign: TextAlign.center,
@@ -64,7 +58,7 @@ class _TeamSectionState extends State<TeamSection>
                   ),
                 ),
                 SizedBox(height: 16),
-                // Selecciona el layout según el ancho disponible
+                // Layout adaptativo según ancho
                 isMobile
                     ? Column(
                         children: [
@@ -75,7 +69,7 @@ class _TeamSectionState extends State<TeamSection>
                             imageCircle: 'assets/team/mayte.jpg',
                             linkedinUrl:
                                 'https://www.linkedin.com/in/mayte-pioli-454b42342/',
-                            email: 'piolimayte@gmail.com',
+                            githubUrl: 'https://github.com/maytepioli',
                           ),
                           SizedBox(height: 20),
                           TeamMember(
@@ -85,7 +79,7 @@ class _TeamSectionState extends State<TeamSection>
                             imageCircle: 'assets/team/ariel.jpg',
                             linkedinUrl:
                                 'https://www.linkedin.com/in/ariel-d%C3%ADaz-948a5b2a1/',
-                            email: 'ariel@example.com',
+                            githubUrl: 'https://github.com/arieldiaz',
                           ),
                           SizedBox(height: 20),
                           TeamMember(
@@ -95,7 +89,7 @@ class _TeamSectionState extends State<TeamSection>
                             imageCircle: 'assets/team/julieta.jpg',
                             linkedinUrl:
                                 'https://www.linkedin.com/in/julieta-bobadilla-b58581247/',
-                            email: 'julietabobadilla123@gmail.com',
+                            githubUrl: 'https://github.com/julietabobadilla',
                           ),
                         ],
                       )
@@ -109,7 +103,7 @@ class _TeamSectionState extends State<TeamSection>
                             imageCircle: 'assets/team/mayte.jpg',
                             linkedinUrl:
                                 'https://www.linkedin.com/in/mayte-pioli-454b42342/',
-                            email: 'piolimayte@gmail.com',
+                            githubUrl: 'https://github.com/maytepioli',
                           ),
                           TeamMember(
                             delay: 200,
@@ -118,7 +112,7 @@ class _TeamSectionState extends State<TeamSection>
                             imageCircle: 'assets/team/ariel.jpg',
                             linkedinUrl:
                                 'https://www.linkedin.com/in/ariel-d%C3%ADaz-948a5b2a1/',
-                            email: 'ariel@example.com',
+                            githubUrl: 'https://github.com/ariel2mz',
                           ),
                           TeamMember(
                             delay: 400,
@@ -127,7 +121,7 @@ class _TeamSectionState extends State<TeamSection>
                             imageCircle: 'assets/team/julieta.jpg',
                             linkedinUrl:
                                 'https://www.linkedin.com/in/julieta-bobadilla-b58581247/',
-                            email: 'julietabobadilla123@gmail.com',
+                            githubUrl: 'https://github.com/julietab28',
                           ),
                         ],
                       ),
@@ -141,14 +135,16 @@ class _TeamSectionState extends State<TeamSection>
   }
 }
 
-// Widget que encapsula cada miembro del equipo con animación de aparición
-class TeamMember extends StatelessWidget {
+// El widget AnimatedCirclesBackground y sus clases se han eliminado
+// para quitar el fondo de círculos en esta sección.
+
+class TeamMember extends StatefulWidget {
   final int delay;
   final String name;
   final String role;
   final String imageCircle;
   final String linkedinUrl;
-  final String email;
+  final String githubUrl;
 
   const TeamMember({
     Key? key,
@@ -157,63 +153,77 @@ class TeamMember extends StatelessWidget {
     required this.role,
     required this.imageCircle,
     required this.linkedinUrl,
-    required this.email,
+    required this.githubUrl,
   }) : super(key: key);
 
   @override
+  _TeamMemberState createState() => _TeamMemberState();
+}
+
+class _TeamMemberState extends State<TeamMember> {
+  double _opacity = 0;
+  Offset _offset = Offset(0, 50);
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration(milliseconds: widget.delay), () {
+      if (mounted) {
+        setState(() {
+          _opacity = 1;
+          _offset = Offset.zero;
+        });
+      }
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return TweenAnimationBuilder<double>(
-      tween: Tween<double>(begin: 0, end: 1),
+    return AnimatedOpacity(
       duration: Duration(milliseconds: 800),
-      builder: (context, opacity, child) {
-        return Opacity(
-          opacity: opacity,
-          child: child,
-        );
-      },
-      child: Column(
-        children: [
-          AnimatedCircleImage(
-            imagePath: imageCircle,
-            radius: 100,
-          ),
-          SizedBox(height: 8),
-          // Nombre en Poppins
-          Text(
-            name,
-            style: GoogleFonts.poppins(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-              color: Color(0xFF9D4EDD),
+      opacity: _opacity,
+      child: Transform.translate(
+        offset: _offset,
+        child: Column(
+          children: [
+            AnimatedCircleImage(
+              imagePath: widget.imageCircle,
+              radius: 100,
             ),
-          ),
-          SizedBox(height: 4),
-          // Rol en Poppins
-          Text(
-            role,
-            style: GoogleFonts.poppins(
-              fontSize: 14,
-              color: Colors.black87,
+            SizedBox(height: 8),
+            Text(
+              widget.name,
+              style: GoogleFonts.poppins(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF9D4EDD),
+              ),
             ),
-            textAlign: TextAlign.center,
-          ),
-          SizedBox(height: 8),
-          // Fila de íconos: LinkedIn y Email
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              LinkedInIcon(linkedInUrl: linkedinUrl),
-              SizedBox(width: 16),
-              EmailIcon(email: email),
-            ],
-          ),
-        ],
+            SizedBox(height: 4),
+            Text(
+              widget.role,
+              style: GoogleFonts.poppins(
+                fontSize: 14,
+                color: Colors.black87,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 8),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                LinkedInIcon(linkedInUrl: widget.linkedinUrl),
+                SizedBox(width: 16),
+                GithubIcon(githubUrl: widget.githubUrl),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
 }
 
-// Widget para el ícono de LinkedIn usando Font Awesome y url_launcher
 class LinkedInIcon extends StatelessWidget {
   final String linkedInUrl;
 
@@ -241,18 +251,17 @@ class LinkedInIcon extends StatelessWidget {
   }
 }
 
-// Widget para el ícono de Email usando Font Awesome y url_launcher
-class EmailIcon extends StatelessWidget {
-  final String email;
+class GithubIcon extends StatelessWidget {
+  final String githubUrl;
 
-  const EmailIcon({Key? key, required this.email}) : super(key: key);
+  const GithubIcon({Key? key, required this.githubUrl}) : super(key: key);
 
-  Future<void> _launchEmail() async {
-    final Uri uri = Uri.parse('mailto:$email');
+  Future<void> _launchURL() async {
+    final Uri uri = Uri.parse(githubUrl);
     if (await canLaunchUrl(uri)) {
       await launchUrl(uri);
     } else {
-      throw 'No se pudo abrir mailto:$email';
+      throw 'No se pudo abrir $githubUrl';
     }
   }
 
@@ -260,16 +269,15 @@ class EmailIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       icon: Icon(
-        FontAwesomeIcons.envelope,
+        FontAwesomeIcons.github,
         size: 40,
         color: Color(0xFF9D4EDD),
       ),
-      onPressed: _launchEmail,
+      onPressed: _launchURL,
     );
   }
 }
 
-// Widget personalizado para mostrar la imagen circular con animación y efecto hover
 class AnimatedCircleImage extends StatefulWidget {
   final String imagePath;
   final double radius;
@@ -291,7 +299,6 @@ class _AnimatedCircleImageState extends State<AnimatedCircleImage> {
   @override
   void initState() {
     super.initState();
-    // Animación inicial: de 0.8 a 1.0
     Future.delayed(Duration(milliseconds: 50), () {
       if (mounted) {
         setState(() {
@@ -303,9 +310,7 @@ class _AnimatedCircleImageState extends State<AnimatedCircleImage> {
 
   @override
   Widget build(BuildContext context) {
-    // Si se pasa el mouse, aumentamos la escala un 5%
     double scaleFactor = _baseScale * (_isHovered ? 1.05 : 1.0);
-
     return MouseRegion(
       onEnter: (_) {
         setState(() {
@@ -338,7 +343,6 @@ class _AnimatedCircleImageState extends State<AnimatedCircleImage> {
             width: widget.radius * 2,
             height: widget.radius * 2,
             fit: BoxFit.cover,
-            // Alineación ajustada para mostrar mejor la parte superior
             alignment: Alignment(0, -1),
           ),
         ),
