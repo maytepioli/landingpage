@@ -75,7 +75,7 @@ class _HomeSectionState extends State<HomeSection>
             );
           },
           child: Text(
-            'introducing HOPE BOX!',
+            'Introducing HOPE BOX!',
             style: GoogleFonts.poppins(
               fontSize: 36,
               fontWeight: FontWeight.w600,
