@@ -8,7 +8,7 @@
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "/landing_page/build/web/$1"
+            "dest": "/landing_oage/build/web/$1"
         }
     ]
 }
