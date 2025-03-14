@@ -59692,7 +59692,7 @@ l(){var s=this.d
 s===$&&A.a()
 s.l()
 this.OS()},
-K(a){var s=null,r=A.c9(a,s,t.w).w,q=t.Ni,p=t.o,o=t.E,n=A.iY(A.b([B.dh,A.aeX(new A.a3t(),A.hr("We introducing Hope Box!",A.hW(B.cF,36,s,B.bv),B.bO),B.dN,new A.ae(B.pa,B.i,q),p),B.eF,A.aeX(new A.a3u(),A.hr("We transform the way we donate",A.hW(B.w,18,s,s),B.bO),B.dN,new A.ae(B.pa,B.i,q),p),B.dh],o),B.a8,B.ah,B.h3),m=A.a9g("assets/team/TELEFONO.png",B.T,B.iv,300,s)
+K(a){var s=null,r=A.c9(a,s,t.w).w,q=t.Ni,p=t.o,o=t.E,n=A.iY(A.b([B.dh,A.aeX(new A.a3t(),A.hr("introducing HOPE BOX!",A.hW(B.cF,36,s,B.bv),B.bO),B.dN,new A.ae(B.pa,B.i,q),p),B.eF,A.aeX(new A.a3u(),A.hr("We transform the way we donate",A.hW(B.w,18,s,s),B.bO),B.dN,new A.ae(B.pa,B.i,q),p),B.dh],o),B.a8,B.ah,B.h3),m=A.a9g("assets/team/TELEFONO.png",B.T,B.iv,300,s)
 p=this.e
 p===$&&A.a()
 return new A.fn(B.jy,A.nr(!1,r.a.a<600?A.iY(A.b([n,m],o),B.a8,B.ah,B.ao):A.DF(A.b([A.acR(n,1),B.hR,A.acR(m,1)],o),B.a8,B.eb,B.ao),p),s)}}
@@ -59729,8 +59729,8 @@ K(a){var s=null,r=this.e
 r===$&&A.a()
 return A.fW(s,A.nr(!1,new A.rZ(new A.a5U(),s),r),B.D,B.G,s,s,s,s,s,s,new A.b9(16,16,16,16),s,s,s)}}
 A.a5U.prototype={
-$2(a1,a2){var s=null,r="Mayte Pioli",q="Project manager & Frontend developer",p="assets/team/mayte.jpg",o="https://www.linkedin.com/in/mayte-pioli-454b42342/",n="https://github.com/maytepioli",m="Ariel Diaz",l="Backend developer",k="assets/team/ariel.jpg",j="https://www.linkedin.com/in/ariel-d%C3%ADaz-948a5b2a1/",i="https://github.com/ariel2mz",h="Julieta Bobadilla",g="assets/team/julieta.jpg",f="https://www.linkedin.com/in/julieta-bobadilla-b58581247/",e="https://github.com/julietab28",d=A.ik(s,50,s),c=A.hr("Team",A.hW(A.av(4288499421),36,s,B.bv),B.bO),b=A.ik(s,16,s),a=t.E,a0=a2.b<600?A.iY(A.b([A.vb(0,n,p,o,r,q),A.ik(s,20,s),A.vb(200,i,k,j,m,l),A.ik(s,20,s),A.vb(400,e,g,f,h,l)],a),B.a8,B.ah,B.ao):A.DF(A.b([A.vb(0,n,p,o,r,q),A.vb(200,i,k,j,m,l),A.vb(400,e,g,f,h,l)],a),B.a8,B.oR,B.ao)
-return A.iY(A.b([d,c,b,a0,A.ik(s,50,s)],a),B.a8,B.ah,B.ao)},
+$2(a,a0){var s=null,r="Mayte Pioli",q="Project manager & Frontend developer",p="https://www.linkedin.com/in/mayte-pioli-454b42342/",o="https://github.com/maytepioli",n="Ariel Diaz",m="Backend developer",l="https://www.linkedin.com/in/ariel-d%C3%ADaz-948a5b2a1/",k="https://github.com/ariel2mz",j="Julieta Bobadilla",i="assets/team/julieta.jpg",h="https://www.linkedin.com/in/julieta-bobadilla-b58581247/",g="https://github.com/julietab28",f=A.ik(s,50,s),e=A.hr("Team",A.hW(A.av(4288499421),36,s,B.bv),B.bO),d=A.ik(s,16,s),c=t.E,b=a0.b<600?A.iY(A.b([A.vb(0,o,"assets/assets/team/mayte.jpg",p,r,q),A.ik(s,20,s),A.vb(200,k,"assets/assets/team/ariel.jpg",l,n,m),A.ik(s,20,s),A.vb(400,g,i,h,j,m)],c),B.a8,B.ah,B.ao):A.DF(A.b([A.vb(0,o,"assets/team/mayte.jpg",p,r,q),A.vb(200,k,"assets/team/ariel.jpg",l,n,m),A.vb(400,g,i,h,j,m)],c),B.a8,B.oR,B.ao)
+return A.iY(A.b([f,e,d,b,A.ik(s,50,s)],c),B.a8,B.ah,B.ao)},
 $S:400}
 A.va.prototype={
 aa(){return new A.Km(new A.t(0,50))}}
