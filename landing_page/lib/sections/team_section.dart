@@ -75,7 +75,7 @@ class _TeamSectionState extends State<TeamSection>
                             imageCircle: 'assets/team/ariel.jpg',
                             linkedinUrl:
                                 'https://www.linkedin.com/in/ariel-d%C3%ADaz-948a5b2a1/',
-                            githubUrl: 'https://github.com/arieldiaz',
+                            githubUrl: 'https://github.com/ariel2mz',
                           ),
                           SizedBox(height: 20),
                           TeamMember(
@@ -85,7 +85,7 @@ class _TeamSectionState extends State<TeamSection>
                             imageCircle: 'assets/team/julieta.jpg',
                             linkedinUrl:
                                 'https://www.linkedin.com/in/julieta-bobadilla-b58581247/',
-                            githubUrl: 'https://github.com/julietabobadilla',
+                            githubUrl: 'https://github.com/julietab28',
                           ),
                         ],
                       )
