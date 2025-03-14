@@ -62,7 +62,7 @@ class _TeamSectionState extends State<TeamSection>
                             delay: 0,
                             name: 'Mayte Pioli',
                             role: 'Project manager & Frontend developer',
-                            imageCircle: 'assets/assets/team/mayte.jpg',
+                            imageCircle: 'assets/team/mayte.jpg',
                             linkedinUrl:
                                 'https://www.linkedin.com/in/mayte-pioli-454b42342/',
                             githubUrl: 'https://github.com/maytepioli',
@@ -72,7 +72,7 @@ class _TeamSectionState extends State<TeamSection>
                             delay: 200,
                             name: 'Ariel Diaz',
                             role: 'Backend developer',
-                            imageCircle: 'assets/assets/team/ariel.jpg',
+                            imageCircle: 'assets/team/ariel.jpg',
                             linkedinUrl:
                                 'https://www.linkedin.com/in/ariel-d%C3%ADaz-948a5b2a1/',
                             githubUrl: 'https://github.com/ariel2mz',
@@ -179,7 +179,8 @@ class _TeamMemberState extends State<TeamMember> {
         offset: _offset,
         child: Column(
           children: [
-            AnimatedCircleImage(
+            // Usamos el widget simplificado para la imagen
+            SimpleCircleImage(
               imagePath: widget.imageCircle,
               radius: 100,
             ),
@@ -217,9 +218,32 @@ class _TeamMemberState extends State<TeamMember> {
   }
 }
 
+// Widget simplificado para mostrar la imagen circular sin animación extra
+class SimpleCircleImage extends StatelessWidget {
+  final String imagePath;
+  final double radius;
+  const SimpleCircleImage({
+    Key? key,
+    required this.imagePath,
+    this.radius = 40,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipOval(
+      child: Image.asset(
+        imagePath,
+        width: radius * 2,
+        height: radius * 2,
+        fit: BoxFit.cover,
+        alignment: Alignment.center,
+      ),
+    );
+  }
+}
+
 class LinkedInIcon extends StatelessWidget {
   final String linkedInUrl;
-
   const LinkedInIcon({Key? key, required this.linkedInUrl}) : super(key: key);
 
   Future<void> _launchURL() async {
@@ -246,7 +270,6 @@ class LinkedInIcon extends StatelessWidget {
 
 class GithubIcon extends StatelessWidget {
   final String githubUrl;
-
   const GithubIcon({Key? key, required this.githubUrl}) : super(key: key);
 
   Future<void> _launchURL() async {
@@ -267,79 +290,6 @@ class GithubIcon extends StatelessWidget {
         color: Color(0xFF9D4EDD),
       ),
       onPressed: _launchURL,
-    );
-  }
-}
-
-class AnimatedCircleImage extends StatefulWidget {
-  final String imagePath;
-  final double radius;
-
-  const AnimatedCircleImage({
-    Key? key,
-    required this.imagePath,
-    this.radius = 40,
-  }) : super(key: key);
-
-  @override
-  _AnimatedCircleImageState createState() => _AnimatedCircleImageState();
-}
-
-class _AnimatedCircleImageState extends State<AnimatedCircleImage> {
-  bool _isHovered = false;
-  double _baseScale = 0.8;
-
-  @override
-  void initState() {
-    super.initState();
-    Future.delayed(Duration(milliseconds: 50), () {
-      if (mounted) {
-        setState(() {
-          _baseScale = 1.0;
-        });
-      }
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    double scaleFactor = _baseScale * (_isHovered ? 1.05 : 1.0);
-    return MouseRegion(
-      onEnter: (_) {
-        setState(() {
-          _isHovered = true;
-        });
-      },
-      onExit: (_) {
-        setState(() {
-          _isHovered = false;
-        });
-      },
-      child: AnimatedContainer(
-        duration: Duration(milliseconds: 300),
-        transform: Matrix4.identity()..scale(scaleFactor),
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          boxShadow: _isHovered
-              ? [
-                  BoxShadow(
-                    color: Colors.black26,
-                    blurRadius: 10,
-                    offset: Offset(0, 5),
-                  ),
-                ]
-              : [],
-        ),
-        child: ClipOval(
-          child: Image.asset(
-            widget.imagePath,
-            width: widget.radius * 2,
-            height: widget.radius * 2,
-            fit: BoxFit.cover,
-            alignment: Alignment(0, -1),
-          ),
-        ),
-      ),
     );
   }
 }
