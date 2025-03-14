@@ -19,7 +19,6 @@ class _TeamSectionState extends State<TeamSection>
   @override
   void initState() {
     super.initState();
-    // Animación global para la sección del equipo
     _controller = AnimationController(
         vsync: this, duration: Duration(milliseconds: 1000));
     _fadeAnimation = Tween<double>(begin: 0, end: 1).animate(_controller);
@@ -34,7 +33,6 @@ class _TeamSectionState extends State<TeamSection>
 
   @override
   Widget build(BuildContext context) {
-    // Se muestra el contenido sobre un fondo transparente (sin los círculos)
     return Container(
       padding: EdgeInsets.all(16.0),
       color: Colors.transparent,
@@ -47,7 +45,6 @@ class _TeamSectionState extends State<TeamSection>
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(height: 50),
-                // Título "Team"
                 Text(
                   'Team',
                   textAlign: TextAlign.center,
@@ -58,7 +55,6 @@ class _TeamSectionState extends State<TeamSection>
                   ),
                 ),
                 SizedBox(height: 16),
-                // Layout adaptativo según ancho
                 isMobile
                     ? Column(
                         children: [
@@ -134,9 +130,6 @@ class _TeamSectionState extends State<TeamSection>
     );
   }
 }
-
-// El widget AnimatedCirclesBackground y sus clases se han eliminado
-// para quitar el fondo de círculos en esta sección.
 
 class TeamMember extends StatefulWidget {
   final int delay;
@@ -232,7 +225,7 @@ class LinkedInIcon extends StatelessWidget {
   Future<void> _launchURL() async {
     final Uri uri = Uri.parse(linkedInUrl);
     if (await canLaunchUrl(uri)) {
-      await launchUrl(uri);
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
     } else {
       throw 'No se pudo abrir $linkedInUrl';
     }
@@ -259,7 +252,7 @@ class GithubIcon extends StatelessWidget {
   Future<void> _launchURL() async {
     final Uri uri = Uri.parse(githubUrl);
     if (await canLaunchUrl(uri)) {
-      await launchUrl(uri);
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
     } else {
       throw 'No se pudo abrir $githubUrl';
     }
