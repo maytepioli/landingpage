@@ -96,7 +96,7 @@ class _TeamSectionState extends State<TeamSection>
                             delay: 0,
                             name: 'Mayte Pioli',
                             role: 'Project manager & Frontend developer',
-                            imageCircle: 'assets/team/mayte.jpg',
+                            imageCircle: 'assets/team/Maite.jpg',
                             linkedinUrl:
                                 'https://www.linkedin.com/in/mayte-pioli-454b42342/',
                             githubUrl: 'https://github.com/maytepioli',
@@ -105,7 +105,7 @@ class _TeamSectionState extends State<TeamSection>
                             delay: 200,
                             name: 'Ariel Diaz',
                             role: 'Backend developer',
-                            imageCircle: 'assets/team/ariel.jpg',
+                            imageCircle: 'assets/team/Ariel.jpg',
                             linkedinUrl:
                                 'https://www.linkedin.com/in/ariel-d%C3%ADaz-948a5b2a1/',
                             githubUrl: 'https://github.com/ariel2mz',
@@ -114,7 +114,7 @@ class _TeamSectionState extends State<TeamSection>
                             delay: 400,
                             name: 'Julieta Bobadilla',
                             role: 'Backend developer',
-                            imageCircle: 'assets/team/julieta.jpg',
+                            imageCircle: 'assets/team/Julieta.jpg',
                             linkedinUrl:
                                 'https://www.linkedin.com/in/julieta-bobadilla-b58581247/',
                             githubUrl: 'https://github.com/julietab28',
