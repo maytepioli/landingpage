@@ -181,7 +181,6 @@ class _TeamMemberState extends State<TeamMember> {
         offset: _offset,
         child: Column(
           children: [
-            // Widget simplificado para la imagen
             SimpleCircleImage(
               imagePath: widget.imageCircle,
               radius: 100,
@@ -237,7 +236,8 @@ class SimpleCircleImage extends StatelessWidget {
         width: radius * 2,
         height: radius * 2,
         fit: BoxFit.cover,
-        alignment: Alignment.center,
+        // Ajusta la alineación para centrar mejor la cabeza
+        alignment: Alignment(0, -0.2),
       ),
     );
   }
