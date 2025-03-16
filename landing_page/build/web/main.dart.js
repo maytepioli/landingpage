@@ -59753,8 +59753,8 @@ K(a){var s=null,r=this.e
 r===$&&A.a()
 return A.fV(s,A.nq(!1,new A.rY(new A.a5M(),s),r),B.D,B.G,s,s,s,s,s,s,new A.b9(16,16,16,16),s,s,s)}}
 A.a5M.prototype={
-$2(a1,a2){var s=null,r="Mayte Pioli",q="Project manager & Frontend developer",p="assets/team/mayte.jpg",o="https://www.linkedin.com/in/mayte-pioli-454b42342/",n="https://github.com/maytepioli",m="Ariel Diaz",l="Backend developer",k="assets/team/ariel.jpg",j="https://www.linkedin.com/in/ariel-d%C3%ADaz-948a5b2a1/",i="https://github.com/ariel2mz",h="Julieta Bobadilla",g="assets/team/julieta.jpg",f="https://www.linkedin.com/in/julieta-bobadilla-b58581247/",e="https://github.com/julietab28",d=A.ik(s,50,s),c=A.hq("Team",A.hW(A.av(4288499421),36,s,B.bu),B.bN),b=A.ik(s,16,s),a=t.E,a0=a2.b<600?A.iY(A.b([A.v9(0,n,p,o,r,q),A.ik(s,20,s),A.v9(200,i,k,j,m,l),A.ik(s,20,s),A.v9(400,e,g,f,h,l)],a),B.a8,B.ah,B.ao):A.DE(A.b([A.v9(0,n,p,o,r,q),A.v9(200,i,k,j,m,l),A.v9(400,e,g,f,h,l)],a),B.a8,B.oQ,B.ao)
-return A.iY(A.b([d,c,b,a0,A.ik(s,50,s)],a),B.a8,B.ah,B.ao)},
+$2(a,b){var s=null,r="Mayte Pioli",q="Project manager & Frontend developer",p="https://www.linkedin.com/in/mayte-pioli-454b42342/",o="https://github.com/maytepioli",n="Ariel Diaz",m="Backend developer",l="https://www.linkedin.com/in/ariel-d%C3%ADaz-948a5b2a1/",k="https://github.com/ariel2mz",j="Julieta Bobadilla",i="https://www.linkedin.com/in/julieta-bobadilla-b58581247/",h="https://github.com/julietab28",g=A.ik(s,50,s),f=A.hq("Team",A.hW(A.av(4288499421),36,s,B.bu),B.bN),e=A.ik(s,16,s),d=t.E,c=b.b<600?A.iY(A.b([A.v9(0,o,"assets/team/mayte.jpg",p,r,q),A.ik(s,20,s),A.v9(200,k,"assets/team/ariel.jpg",l,n,m),A.ik(s,20,s),A.v9(400,h,"assets/team/julieta.jpg",i,j,m)],d),B.a8,B.ah,B.ao):A.DE(A.b([A.v9(0,o,"assets/team/Maite.jpg",p,r,q),A.v9(200,k,"assets/team/Ariel.jpg",l,n,m),A.v9(400,h,"assets/team/Julieta.jpg",i,j,m)],d),B.a8,B.oQ,B.ao)
+return A.iY(A.b([g,f,e,c,A.ik(s,50,s)],d),B.a8,B.ah,B.ao)},
 $S:401}
 A.v8.prototype={
 ac(){return new A.Kl(new A.t(0,50))}}
