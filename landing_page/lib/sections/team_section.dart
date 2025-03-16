@@ -160,6 +160,8 @@ class _TeamMemberState extends State<TeamMember> {
   @override
   void initState() {
     super.initState();
+    // Precargamos la imagen para evitar problemas de carga en Android
+    precacheImage(AssetImage(widget.imageCircle), context);
     Future.delayed(Duration(milliseconds: widget.delay), () {
       if (mounted) {
         setState(() {
@@ -179,7 +181,7 @@ class _TeamMemberState extends State<TeamMember> {
         offset: _offset,
         child: Column(
           children: [
-            // Usamos el widget simplificado para la imagen
+            // Widget simplificado para la imagen
             SimpleCircleImage(
               imagePath: widget.imageCircle,
               radius: 100,
@@ -218,7 +220,6 @@ class _TeamMemberState extends State<TeamMember> {
   }
 }
 
-// Widget simplificado para mostrar la imagen circular sin animación extra
 class SimpleCircleImage extends StatelessWidget {
   final String imagePath;
   final double radius;
