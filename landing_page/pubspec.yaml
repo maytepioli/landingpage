@@ -23,9 +23,9 @@ dev_dependencies:
 
 flutter:
   assets:
-    - assets/team/ariel.jpg
-    - assets/team/julieta.jpg
-    - assets/team/mayte.jpg
+    - assets/team/Ariel.jpg
+    - assets/team/Julieta.jpg
+    - assets/team/Maite.jpg
     - assets/team/TELEFONO.png
     - assets/team/celular.png
     - assets/team/celular2.png
